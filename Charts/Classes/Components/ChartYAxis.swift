@@ -136,6 +136,9 @@ public class ChartYAxis: ChartAxisBase
     /// **default**: 1.0
     public var granularity = Double(1.0)
     
+    /// Text to be displayed in X-Y axis intersection
+    public var cornerLabelText: String?
+    
     public override init()
     {
         super.init()

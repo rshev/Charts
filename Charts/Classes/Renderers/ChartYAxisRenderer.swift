@@ -295,6 +295,14 @@ public class ChartYAxisRenderer: ChartAxisRendererBase
             
             ChartUtils.drawText(context: context, text: text, point: pt, align: textAlign, attributes: [NSFontAttributeName: labelFont, NSForegroundColorAttributeName: labelTextColor])
         }
+        
+        if let cornerLabelText = yAxis.cornerLabelText {
+            pt.x = fixedPosition
+            pt.y = viewPortHandler.contentBottom - offset
+            
+            ChartUtils.drawText(context: context, text: cornerLabelText, point: pt, align: textAlign, attributes: [NSFontAttributeName: labelFont, NSForegroundColorAttributeName: labelTextColor])
+        }
+
     }
     
     private var _gridLineBuffer = [CGPoint](count: 2, repeatedValue: CGPoint())

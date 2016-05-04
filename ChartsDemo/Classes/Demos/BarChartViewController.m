@@ -43,6 +43,7 @@
                      @{@"key": @"togglePinchZoom", @"label": @"Toggle PinchZoom"},
                      @{@"key": @"toggleAutoScaleMinMax", @"label": @"Toggle auto scale min/max"},
                      @{@"key": @"toggleData", @"label": @"Toggle Data"},
+                     @{@"key": @"toggleCornerLabel", @"label": @"Toggle Corner Label"}
                      ];
     
     [self setupBarLineChartView:_chartView];
@@ -140,6 +141,20 @@
 
 - (void)optionTapped:(NSString *)key
 {
+    if ([key isEqualToString:@"toggleCornerLabel"])
+    {
+        if (_chartView.rightAxis.cornerLabelText)
+        {
+            _chartView.rightAxis.cornerLabelText = nil;
+        }
+        else
+        {
+            _chartView.rightAxis.cornerLabelText = @"USD";
+        }
+        [_chartView setNeedsDisplay];
+        return;
+    }
+    
     [super handleOption:key forChartView:_chartView];
 }
 
